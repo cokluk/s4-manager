@@ -69,14 +69,15 @@ function DrawText3D(x,y,z,text,color)
     SetTextScale(0.35, 0.35)
     SetTextFont(4)
     SetTextProportional(1)
- 
-    SetTextColour(255,255,255,255)
+    SetTextColour(255, 255, 255, 215)
     SetTextEntry("STRING")
-    SetTextCentre(1)
+    SetTextCentre(true)
     AddTextComponentString(text)
-    DrawText(_x,_y)
+    SetDrawOrigin(x,y,z, 0)
+    DrawText(0.0, 0.0)
     local factor = (string.len(text)) / 370
-    DrawRect(_x,_y+0.0125, 0.015+ factor, 0.03, 41, 11, 41, 68)
+    DrawRect(0.0, 0.0+0.0125, 0.017+ factor, 0.03, 0, 0, 0, 75)
+    ClearDrawOrigin()
 end
 
 AddEventHandler('s4:getManager', function(cb)
